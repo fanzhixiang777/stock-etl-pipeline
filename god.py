@@ -11,6 +11,6 @@ daily = data["Time Series (Daily)"]
 df = pd.DataFrame(daily).T
 df = df.apply(pd.to_numeric)
 conn = sqlite3.connect('stocks.db')
-df.to_sql('ibm_daily', conn, if_exists='replace')
-check = pd.read_sql('SELECT * FROM ibm_daily', conn)
+df.to_sql(f'{sybmol}_daily', conn, if_exists='replace')
+check = pd.read_sql(f'SELECT * FROM {sybmol}_daily', conn)
 print(check)
