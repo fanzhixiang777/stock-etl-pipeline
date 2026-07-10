@@ -1,9 +1,9 @@
 import pandas as pd
 import sqlite3
 
-sybmol = []
+symbol = []
 conn = sqlite3.connect('stocks.db')
-check = pd.read_sql(f'SELECT * FROM {sybmol}_daily', conn)
+check = pd.read_sql(f'SELECT * FROM {symbol}_daily', conn)
 check = check.rename(columns={'index': 'date', '4. close': 'close'})
 check = check.sort_values('date')
 check['MA5'] = check['close'].rolling(5).mean()
