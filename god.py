@@ -3,8 +3,8 @@ import pandas as pd
 import sqlite3
 from config import API_KEY
 
-
-url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey={API_KEY}"
+syboml = []
+url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={syboml}&apikey={API_KEY}"
 response = requests.get(url)
 data = response.json()
 daily = data["Time Series (Daily)"]
